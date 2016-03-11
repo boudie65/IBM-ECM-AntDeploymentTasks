@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+
+<project name="ECMDeploymentTasks_Example_class_definition" default="datamodel" basedir=".">
+
+	<!-- Custom Tasks -->
+		
+  	<taskdef name="objectstore"	 				classname="com.ibm.deploy.ant.task.ce.ObjectStoreTask"/>
+  	<taskdef name="createproperty"				classname="com.ibm.deploy.ant.task.ce.ImportPropertyTemplateTask" />
+  	<taskdef name="createclass"					classname="com.ibm.deploy.ant.task.ce.ImportClassTask" />
+  	
+  	<typedef name="addproperty"					classname="com.ibm.deploy.ant.types.AddPropertyDefinitionToClassDefinitionAction" />
+
+	<property name="cpe.username" value="p8admin"/>
+	<property name="cpe.password" value="PASSWORD"/>
+	<property name="cpe.url" value="http://IP:9080/wsi/FNCEWS40MTOM/"/>
+
+	<property name="objectStoreName" value="TARGET"/>
+		
+	<target name="datamodel">
+
+		<objectstore userName="${cpe.username}" 
+					 password="${cpe.password}" 
+					 url="${cpe.url}" 
+					 objectStoreName="${objectStoreName}">
+
+	    	<createproperty 
+	    		displayName="Customer Name" 
+	    		symbolicName="CustomerName" 
+	    		description="The customer Name" 
+	    		propertyType="string" 
+	    		cardinality="0"
+	    		maximumStringLength="64" 
+	    		defaultString="John Doe" />
+	    	<createproperty 
+	    		displayName="Customer Since" 
+	    		symbolicName="CustomerSince" 
+	    		description="The number of years the customer has been with the company." 
+	    		propertyType="integer" 
+				maximumInteger="40" 
+				minimumInteger="0" 
+	    		cardinality="0" 
+	    		verbose="true"/>
+	    	<createproperty 
+	    		displayName="Date of Birth" 
+	    		symbolicName="DateOfBirth" 
+	    		description="DateOfBirth" 
+	    		propertyType="DateTime" 
+				defaultDateTime="02/18/2016" 
+				maximumDateTime="02/30/2020" 
+				minimumDateTime="12/02/1876" 
+	    		cardinality="0" 
+	    		verbose="true"/>
+
+			<createclass className="Correspondence" displayName="My Correspondence" parentClassName="Document" verbose="true">
+				<addproperty name="DateOfBirth" hidden="false" required="false" verbose="true"/>
+				<addproperty name="CustomerName" hidden="false" required="true" verbose="true"/>
+			</createclass>
+
+		</objectstore>
+
+	</target>
+</project>

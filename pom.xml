@@ -1,0 +1,122 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.ibm.deploy</groupId>
+	<artifactId>AntDeployTasks</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>IBM ECM Deploy Task</name>
+	<description>Custom ant task for the deployment of IBM ECM applications</description>
+	<properties>
+		<libroot>D:\Software\IBM\JARs</libroot>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ant</groupId>
+			<artifactId>ant</artifactId>
+			<version>1.9.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.12</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.12</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>4.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<!-- Adding Lombok for Getter/Setter Annotations -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.6</version>
+		</dependency>
+		<!-- Below are IBM class files available on after running https://gitlab.com/boudie65/IBM-icm-Maven-Install -->
+		<dependency>
+			<groupId>com.ibm.filenet.cpe</groupId>
+			<artifactId>Jace</artifactId>
+			<version>5.2.1.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.icm.api</groupId>
+			<artifactId>acmapi</artifactId>
+			<version>5.2.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.icm.plugins</groupId>
+			<artifactId>ICMAdminClientPlugin</artifactId>
+			<version>5.2.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.icm.api</groupId>
+			<artifactId>JSON4J</artifactId>
+			<version>5.2.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.icm.api</groupId>
+			<artifactId>JSON4J_Apache</artifactId>
+			<version>5.2.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.filenet.cpe</groupId>
+			<artifactId>pe</artifactId>
+			<version>5.2.1.3</version>
+		</dependency>
+		<!-- <dependency> <groupId>com.icm</groupId> <artifactId>cpt-actions</artifactId> 
+			<version>5.2.1</version> <scope>system</scope> <systemPath>${libroot}\CMPIT\cpt-actions.jar</systemPath> 
+			</dependency> <dependency> <groupId>com.ibm.casemgmt</groupId> <artifactId>config-mgr</artifactId> 
+			<version>5.2.1</version> <scope>system</scope> <systemPath>${libroot}\ICM_ConfigMgr\com.ibm.ecm.configmgr.app.acm_5.2.1.201506170517.jar</systemPath> 
+			</dependency> <dependency> <groupId>com.ibm.casemgmt</groupId> <artifactId>config-lib</artifactId> 
+			<version>5.2.1</version> <scope>system</scope> <systemPath>${libroot}\ICM_ConfigMgr\config-lib.jar</systemPath> 
+			</dependency> -->
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<developers>
+		<developer>
+			<id>pvdhorst</id>
+			<name>Patrick van der Horst</name>
+			<email>horst.vander.patrick@gmail.com</email>
+			<url>http://www.patrickvanderhorst.info</url>
+		</developer>
+		<developer>
+			<id>rhbelfor</id>
+			<name>Ricardo Belfor</name>
+			<url>http://www.ecmdeveloper.com</url>
+		</developer>
+	</developers>
+</project>
