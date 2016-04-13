@@ -112,7 +112,7 @@ public class ObjectStoreTask extends DeployTasks {
 	 *
 	 * @param nestedTask the nested task
 	 */
-	public void addConfiguredCreateproperty(ImportPropertyTemplateTask nestedTask) {
+	public void addConfiguredCreateProperty(ImportPropertyTemplateTask nestedTask) {
 		addTask(nestedTask);
 	}
 
