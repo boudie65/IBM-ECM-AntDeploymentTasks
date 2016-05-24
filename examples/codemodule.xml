@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<project name="ECMDeploymentTasks_Example_class_definition" default="datamodel" basedir=".">
+
+	<!-- Custom Tasks -->
+		
+  	<taskdef name="objectstore"	 				classname="com.ibm.deploy.ant.task.ce.ObjectStoreTask"/>
+  	<taskdef name="codemodule"					classname="com.ibm.deploy.ant.task.ce.ImportCodeModuleTask" />
+
+	<property name="cpe.username" value="p8admin"/>
+	<property name="cpe.password" value="PASSWORD"/>
+	<property name="cpe.url" value="http://IP:9080/wsi/FNCEWS40MTOM/"/>
+
+	<property name="objectStoreName" value="TARGET"/>
+		
+	<target name="datamodel">
+
+		<objectstore userName="${cpe.username}" 
+					 password="${cpe.password}" 
+					 url="${cpe.url}" 
+					 objectStoreName="${objectStoreName}">
+
+		    <codemodule codeModuleName="Bla" codeModulePath="/CodeModules" updateReferencingActions="true">
+		    	<fileset dir="./lib" includes="./lib/*.jar"/>
+		    </codemodule>
+		    	
+		</objectstore>
+
+	</target>
+</project>

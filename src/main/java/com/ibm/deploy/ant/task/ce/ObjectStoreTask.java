@@ -124,7 +124,16 @@ public class ObjectStoreTask extends DeployTasks {
 	public void addConfiguredCreateClass(ImportClassTask nestedTask) {
 		addTask(nestedTask);
 	}
-	
+
+	/**
+	 * Adds the importcodemodule task.
+	 *
+	 * @param nestedTask the nested task
+	 */
+	public void addConfiguredCodeModule(ImportCodeModuleTask nestedTask) {
+		addTask(nestedTask);
+	}
+
 	/**
 	 * Adds the set default instance security task.
 	 *
